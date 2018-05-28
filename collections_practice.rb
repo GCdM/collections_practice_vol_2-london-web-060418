@@ -45,6 +45,7 @@ end
 def merge_data(keys, data)
   result = []
   keys.flatten!
+<<<<<<< HEAD
   data.flatten!
   keys.each_with_index do |x, y|
     result[y] = x
@@ -71,4 +72,15 @@ def organize_schools(schools)
     orgschools[location] += [x]
   end
   return orgschools
+=======
+  data.flatten!(2)
+  keys.each_with_index do |x, y|
+    result[y] = x
+  end
+  data.each_with_index do |x, y|
+    info = x[result[y][:first_name]]
+    result[y].merge!(info)
+  end
+  return result
+>>>>>>> 33752bc54fde5aa61ddd73862b83e062227e11aa
 end
